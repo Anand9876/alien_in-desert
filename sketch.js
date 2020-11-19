@@ -44,6 +44,17 @@ function draw(){
   
   background("black");
   drawSprites();
+  if(gameState===END){
+    textSize(20);
+    text("Press ENTER to restart",150,200);
+    alien.collide(invisibleground);
+    obstacleGroup.destroyEach();
+      badgesGroup.destroyEach();
+    Background.pause();
+    if(keyDown("ENTER")){
+      reset();
+    }
+  }
    textSize(20);
   text("Score:"+score,180,50);
   if(gameState===PLAY){
@@ -65,17 +76,7 @@ function draw(){
       alien.pause();
     }
   }
-  if(gameState===END){
-    textSize(20);
-    text("Press ENTER to restart",150,200);
-    alien.collide(invisibleground);
-    obstacleGroup.destroyEach();
-      badgesGroup.destroyEach();
-    Background.pause();
-    if(keyDown("ENTER")){
-      reset();
-    }
-  }
+  
   
 }
 function obstacle(){
